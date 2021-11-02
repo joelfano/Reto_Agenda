@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         }else if (c.length()==0) {
             Toast.makeText(this, "No existe dicho contraseña", Toast.LENGTH_LONG).show();
         }else{
-            Intent i = new Intent(this, Menue.class);
+            Intent i = new Intent(this, newTask.class);
             startActivity(i);
         }
     }
