@@ -3,6 +3,7 @@ package com.example.proyecto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +45,7 @@ public class newTask extends AppCompatActivity {
         lista.put("prioridad", pri);
         lista.put("coste", coste);
         //Insertarlo en BD
-        bd.insert("articulos", null, lista);
+        bd.insert("listas", null, lista);
         bd.close();
         etNombre.setText("");
         etDescripcion.setText("");
@@ -52,5 +53,7 @@ public class newTask extends AppCompatActivity {
         etPrioridad.setText("");
         etCoste.setText("");
         Toast.makeText(this, "Se cargaron los datos del artículo", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, taskList.class);
+        startActivity(i);
     }
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bg"
+    tools:context=".taskList">
+
+    <ImageView
+        android:id="@+id/img_list_task"
+        android:layout_width="365dp"
+        android:layout_height="672dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491"
+        app:srcCompat="@mipmap/img_white" />
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="164dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#00F091"
+        android:text="HECHAS"
+        app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
+        app:layout_constraintEnd_toEndOf="@+id/img_list_task"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="@+id/img_list_task"
+        app:layout_constraintTop_toTopOf="@+id/img_list_task"
+        app:layout_constraintVertical_bias="0.979"
+        app:shapeAppearance="@style/CardView" />
+
+    <Button
+        android:id="@+id/btn_to_do"
+        android:layout_width="164dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#00F091"
+        android:text="PENDIENTES"
+        app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
+        app:layout_constraintEnd_toEndOf="@+id/img_list_task"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="@+id/img_list_task"
+        app:layout_constraintTop_toTopOf="@+id/img_list_task"
+        app:layout_constraintVertical_bias="0.979"
+        app:shapeAppearance="@style/CardView" />
+
+    <ImageView
+        android:id="@+id/img_bg"
+        android:layout_width="365dp"
+        android:layout_height="53dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
+        app:layout_constraintEnd_toEndOf="@+id/img_list_task"
+        app:layout_constraintStart_toStartOf="@+id/img_list_task"
+        app:layout_constraintTop_toTopOf="@+id/img_list_task"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/img_blue" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="358dp"
+        android:layout_height="35dp"
+        android:text="Lista de tareas"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_bg"
+        app:layout_constraintEnd_toEndOf="@+id/img_bg"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/img_bg"
+        app:layout_constraintTop_toTopOf="@+id/img_list_task"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="104dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="160dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

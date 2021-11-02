@@ -13,7 +13,10 @@
             android:name=".newTask"
             android:exported="true" />
         <activity
-            android:name=".Menu"
+            android:name=".taskList"
+            android:exported="true" />
+        <activity
+            android:name=".mainMenu"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
