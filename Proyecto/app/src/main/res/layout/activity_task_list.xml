@@ -62,7 +62,7 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="358dp"
+        android:layout_width="365dp"
         android:layout_height="35dp"
         android:text="Lista de tareas"
         android:textAlignment="center"
@@ -74,11 +74,14 @@
         app:layout_constraintTop_toTopOf="@+id/img_list_task"
         app:layout_constraintVertical_bias="0.6" />
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="104dp"
-        android:layout_height="41dp"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="160dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="334dp"
+        android:layout_height="526dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
+        app:layout_constraintEnd_toEndOf="@+id/img_list_task"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/img_list_task"
+        app:layout_constraintTop_toBottomOf="@+id/img_bg"
+        app:layout_constraintVertical_bias="0.215" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

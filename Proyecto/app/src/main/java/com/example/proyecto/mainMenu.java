@@ -14,8 +14,9 @@ public class mainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
     }
 
-    public void ejecutar1(View v) {
-        Toast.makeText(this, "No existe dicho contraseña", Toast.LENGTH_LONG).show();
+    public void go_new_task(View v) {
+        Intent i = new Intent(this, newTask.class);
+        startActivity(i);
     }
 
     public void go_task_list(View v) {

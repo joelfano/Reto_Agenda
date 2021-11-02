@@ -27,16 +27,18 @@ public class newTask extends AppCompatActivity {
     }
 
     //crear BD
-    public void alta(View v) {
-        //crear BD
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
+    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tasks", null, 1);
+    SQLiteDatabase bd = admin.getWritableDatabase();
+
+    public void addTask(View v) {
+
         //Obtener los datos del EditText
         String nombre = etNombre.getText().toString();
         String descri = etDescripcion.getText().toString();
         String fecha = etFecha.getText().toString();
         String pri = etPrioridad.getText().toString();
         String coste = etCoste.getText().toString();
+
         //Poner los datos en cada columna
         ContentValues lista = new ContentValues();
         lista.put("nombre", nombre);
@@ -44,16 +46,20 @@ public class newTask extends AppCompatActivity {
         lista.put("fecha", fecha);
         lista.put("prioridad", pri);
         lista.put("coste", coste);
+
         //Insertarlo en BD
-        bd.insert("listas", null, lista);
+        bd.insert("tasks", null, lista);
         bd.close();
+
         etNombre.setText("");
         etDescripcion.setText("");
         etFecha.setText("");
         etPrioridad.setText("");
         etCoste.setText("");
-        Toast.makeText(this, "Se cargaron los datos del artículo", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(this, taskList.class);
+    }
+
+    public void goBack(View v) {
+        Intent i = new Intent(this, mainMenu.class);
         startActivity(i);
     }
 }
