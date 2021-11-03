@@ -20,15 +20,16 @@
             android:orientation = "horizontal"
             android:background="@color/white"
             android:padding="6dp">
-
             <ImageView
                 android:id="@+id/task_image"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                app:srcCompat="@mipmap/task_image" />
+                app:srcCompat="@mipmap/task_image"
+                />
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"

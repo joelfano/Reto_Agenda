@@ -52,6 +52,10 @@ public class newTask extends AppCompatActivity {
         bd.insert("tasks", null, lista);
         bd.close();
 
+        taskList.elements.add(new ListElement("#775477",etNombre.getText().toString(), etPrioridad.getText().toString()));
+
+
+
         etNombre.setText("");
         etDescripcion.setText("");
         etFecha.setText("");
