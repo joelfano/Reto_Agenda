@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         et_Usuario = findViewById(R.id.et_Usuario);
         et_Contraseña = findViewById(R.id.et_Contraseña);
         cb_Recuerda= findViewById(R.id.cb_Recuerda);
+        getSupportActionBar().hide();
 
         String contra="12345";
         String usu="asier";

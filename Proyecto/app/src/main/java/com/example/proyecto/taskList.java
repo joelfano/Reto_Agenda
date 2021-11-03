@@ -16,10 +16,8 @@ public class taskList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
+        getSupportActionBar().hide();
     }
 
-    //Consultar en la BD
-    public void consultaporcodigo(View v) {
 
-    }
 }

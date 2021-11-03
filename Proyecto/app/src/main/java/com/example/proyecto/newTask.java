@@ -24,14 +24,15 @@ public class newTask extends AppCompatActivity {
         etFecha=findViewById(R.id.etFecha);
         etPrioridad=findViewById(R.id.etPrioridad);
         etCoste=findViewById(R.id.etCoste);
+        getSupportActionBar().hide();
     }
 
-    //crear BD
-    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tasks", null, 1);
-    SQLiteDatabase bd = admin.getWritableDatabase();
+
 
     public void addTask(View v) {
-
+        //crear BD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tasks", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
         //Obtener los datos del EditText
         String nombre = etNombre.getText().toString();
         String descri = etDescripcion.getText().toString();
