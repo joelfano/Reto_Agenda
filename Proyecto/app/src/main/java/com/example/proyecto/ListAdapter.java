@@ -19,11 +19,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<ListElement> mData;
     private LayoutInflater mInfalter;
     private Context context;
+    final ListAdapter.OnItemClickListener listener;
 
-    public ListAdapter(List<ListElement> itemList, Context context){
+    public interface OnItemClickListener{
+        void onItemClick(ListElement item);
+    }
+
+    public ListAdapter(List<ListElement> itemList, Context context, ListAdapter.OnItemClickListener listener){
         this.mInfalter = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.listener = listener;
     }
 
     @Override
@@ -61,8 +67,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             iconImgage.setColorFilter(Color.parseColor(item.getColor()), PorterDuff.Mode.SRC_IN);
             name.setText(item.getName());
             status.setText(item.getStatus());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
         }
-
     }
 }
 

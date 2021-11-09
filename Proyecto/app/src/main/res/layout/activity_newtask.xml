@@ -10,102 +10,106 @@
         android:id="@+id/etDescripcion"
         android:layout_width="380dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Descipcion"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/spPrio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.279"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="380dp"
         android:layout_height="48dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Nombre"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etDescripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136"
+        app:layout_constraintVertical_bias="0.243"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <EditText
-        android:id="@+id/etFecha"
-        android:layout_width="380dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Fecha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
-
-    <EditText
-        android:id="@+id/etCoste"
-        android:layout_width="380dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Coste"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.726" />
-
-    <EditText
-        android:id="@+id/etPrioridad"
-        android:layout_width="380dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Prioridad"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+    <Button
+        android:id="@+id/btnFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="#00A0FC"
+        android:onClick="elegirFecha"
+        android:text="Fecha"
+        app:layout_constraintBottom_toTopOf="@+id/etCoste"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="188dp"
-        android:layout_height="54dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#00A0FC"
         android:onClick="addTask"
         android:text="Registrar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883"
         app:shapeAppearance="@style/CardView" />
 
     <Button
         android:id="@+id/btnCancelar"
-        android:layout_width="188dp"
-        android:layout_height="54dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#00A0FC"
         android:onClick="goBack"
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883"
         app:shapeAppearance="@style/CardView" />
+
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/etCoste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toEndOf="@+id/btnFecha"
+        app:layout_constraintTop_toBottomOf="@+id/spPrio"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Spinner
+        android:id="@+id/spPrio"
+        android:layout_width="380dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnFecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/etCoste"
+        android:layout_width="380dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="84dp"
+        android:ems="10"
+        android:hint="Coste"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

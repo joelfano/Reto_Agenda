@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -42,10 +43,21 @@ public class taskList extends AppCompatActivity {
         bd.close();
 
 
-        ListAdapter listAdapter = new ListAdapter(elements, this);
+        ListAdapter listAdapter = new ListAdapter(elements, this, new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                moveToDescription(item);
+            }
+        });
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
+    }
+
+    public void moveToDescription(ListElement item){
+        Intent intent = new Intent(this, DescriptionActivity.class);
+        intent.putExtra("ListItem", item);
+        startActivity(intent);
     }
 }
