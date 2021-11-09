@@ -31,36 +31,34 @@ public class newTask extends AppCompatActivity {
 
     public void addTask(View v) {
         //crear BD
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tasks", null, 1);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
+
         //Obtener los datos del EditText
-        String nombre = etNombre.getText().toString();
+        String cod = etNombre.getText().toString();
         String descri = etDescripcion.getText().toString();
         String fecha = etFecha.getText().toString();
-        String pri = etPrioridad.getText().toString();
+        String prio = etPrioridad.getText().toString();
         String coste = etCoste.getText().toString();
 
-        //Poner los datos en cada columna
-        ContentValues lista = new ContentValues();
-        lista.put("nombre", nombre);
-        lista.put("descripcion", descri);
-        lista.put("fecha", fecha);
-        lista.put("prioridad", pri);
-        lista.put("coste", coste);
+        //Poner los datos en la tabla registro
+        ContentValues registro = new ContentValues();
+        registro.put("codigo", cod);
+        registro.put("descripcion", descri);
+        registro.put("fec", fecha);
+        registro.put("prio", prio);
+        registro.put("coste", coste);
 
-        //Insertarlo en BD
-        bd.insert("tasks", null, lista);
+        //Insertarlo en la tabla
+        bd.insert("articulos", null, registro);
         bd.close();
-
-        taskList.elements.add(new ListElement("#775477",etNombre.getText().toString(), etPrioridad.getText().toString()));
-
-
-
         etNombre.setText("");
         etDescripcion.setText("");
         etFecha.setText("");
         etPrioridad.setText("");
         etCoste.setText("");
+
+        Toast.makeText(this, "Se cargaron los datos del artículo", Toast.LENGTH_SHORT).show();
     }
 
     public void goBack(View v) {

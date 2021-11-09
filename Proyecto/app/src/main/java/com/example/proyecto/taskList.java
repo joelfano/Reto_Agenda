@@ -23,11 +23,24 @@ public class taskList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
         getSupportActionBar().hide();
+        init();
     }
 
 
-    public void init(View v) {
+    public void init() {
         elements = new ArrayList<>();
+
+
+        //Crear BD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        //Consultar el dato con rawQuery
+        Cursor fila = bd.rawQuery("select codigo,prio from articulos", null);
+        while (fila.moveToNext()) {
+           elements.add(new ListElement("#774567",fila.getString(0),fila.getString(1)));
+        }
+        bd.close();
+
 
         ListAdapter listAdapter = new ListAdapter(elements, this);
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
