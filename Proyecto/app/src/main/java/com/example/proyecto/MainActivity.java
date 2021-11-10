@@ -30,27 +30,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void ejecutar(View v) {
         String contra=et_Contraseña.getText().toString();
-        String usu=et_Usuario.getText().toString();
 
 
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("contraseña",contra);
-        editor.putString("usuario",usu);
-        editor.commit();
-
-
-        SharedPreferences prefe=getSharedPreferences("login", Context.MODE_PRIVATE);
-        String d=prefe.getString("usuario", "");
-        String c=prefe.getString("contraseña", "");
-
-        if (c.length()==0){
-            Toast.makeText(this,"No existe dicho nombre", Toast.LENGTH_LONG).show();
-        }else if (d.length()==0) {
-            Toast.makeText(this, "No existe dicho contraseña", Toast.LENGTH_LONG).show();
+        if (preferences.contains("contraseña")){
+            String c=preferences.getString("contraseña", "");
+            if (contra.equals(c)){
+                Intent i = new Intent(this, mainMenu.class);
+                startActivity(i);
+            }else{
+                Toast.makeText(this, "No existe dicho contraseña" + c, Toast.LENGTH_LONG).show();
+            }
         }else{
-            Intent i = new Intent(this, mainMenu.class);
-            startActivity(i);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("contraseña",contra);
+            editor.commit();
         }
     }
 }
