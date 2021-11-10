@@ -63,32 +63,31 @@ private EditText viejo;
         LayoutInflater inflater = getLayoutInflater();
 
         View view = inflater.inflate(R.layout.activity_dialogo,null);
-        nuevo = findViewById(R.id.etnuevo);
-        viejo = findViewById(R.id.etviejo);
 
         builder.setView(view);
 
         final AlertDialog dialog = builder.create();
         dialog.show();
 
-
+        viejo = view.findViewById(R.id.etviejo);
+        nuevo = view.findViewById(R.id.etnuevo);
     }
 
     public void aceptar(View v){
-        Toast.makeText(getApplicationContext(),"No 1existe dicho nombre", Toast.LENGTH_LONG).show();
-
-        String viejotxt = "12";
+        String viej= viejo.getText().toString();
         SharedPreferences prefe1=getSharedPreferences("login", Context.MODE_PRIVATE);
         String c=prefe1.getString("contraseña", "");
 
-        if (c.equals(viejotxt)){
+        if (c.equals(viej)){
             String contranuevo = nuevo.getText().toString();
-            SharedPreferences prefe=getSharedPreferences("login", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefe.edit();
+
+            SharedPreferences.Editor editor = prefe1.edit();
             editor.putString("contraseña",contranuevo);
             editor.commit();
+            Intent i = new Intent(this, mainMenu.class);
+            startActivity(i);
         }else {
-            Toast.makeText(this, "No existe dicha contraseña" , Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Contraseña vieja incorrecta", Toast.LENGTH_LONG).show();
         }
     }
 }

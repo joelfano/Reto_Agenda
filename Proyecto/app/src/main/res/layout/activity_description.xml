@@ -16,10 +16,10 @@
         android:text="Description"
         android:textColor="@color/black"
         android:textSize="50dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_cityDescription"
+        android:id="@+id/tv_desDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_titleDescription"
@@ -28,23 +28,50 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Ciudad"
+        android:text="Status"
         android:textColor="@color/black"
-        android:textSize="28dp"/>
+        android:textSize="16dp"/>
 
     <TextView
         android:id="@+id/tv_statusDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_cityDescription"
+        android:layout_below="@+id/tv_desDescription"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         android:text="Status"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_fechaDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_statusDescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="26dp"
+        android:text="Status"
+        android:textColor="@color/black"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_costeDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_fechaDescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="26dp"
+        android:text="Status"
+        android:textColor="@color/black"
+        android:textSize="16dp"/>
 
 </RelativeLayout>
