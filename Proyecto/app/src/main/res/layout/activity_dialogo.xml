@@ -71,7 +71,7 @@
             android:id="@+id/btnaceptar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="validar"
+            android:onClick="aceptar"
             android:text="Aceptar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -26,26 +26,27 @@ public class MainActivity extends AppCompatActivity {
         et_Contraseña = findViewById(R.id.et_Contraseña);
         cb_Recuerda= findViewById(R.id.cb_Recuerda);
         getSupportActionBar().hide();
-
-        String contra="12345";
-        String usu="asier";
-
-        SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(usu, contra);
-        editor.commit();
     }
 
     public void ejecutar(View v) {
+        String contra=et_Contraseña.getText().toString();
         String usu=et_Usuario.getText().toString();
-        String contra=et_Usuario.getText().toString();
-        SharedPreferences prefe=getSharedPreferences("login", Context.MODE_PRIVATE);
-        String d=prefe.getString(usu, "");
-        String c=prefe.getString(contra, "");
 
-        if (d.length()==0){
+
+        SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("contraseña",contra);
+        editor.putString("usuario",usu);
+        editor.commit();
+
+
+        SharedPreferences prefe=getSharedPreferences("login", Context.MODE_PRIVATE);
+        String d=prefe.getString("usuario", "");
+        String c=prefe.getString("contraseña", "");
+
+        if (c.length()==0){
             Toast.makeText(this,"No existe dicho nombre", Toast.LENGTH_LONG).show();
-        }else if (c.length()==0) {
+        }else if (d.length()==0) {
             Toast.makeText(this, "No existe dicho contraseña", Toast.LENGTH_LONG).show();
         }else{
             Intent i = new Intent(this, mainMenu.class);
