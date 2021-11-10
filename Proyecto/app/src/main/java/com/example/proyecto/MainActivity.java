@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(this, mainMenu.class);
                 startActivity(i);
             }else{
+
                 Toast.makeText(this, "La contraseña es incorrecta", Toast.LENGTH_LONG).show();
+
             }
         }else{
             SharedPreferences.Editor editor = preferences.edit();

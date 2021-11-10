@@ -17,8 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class mainMenu extends AppCompatActivity {
-private EditText nuevo;
-private EditText viejo;
+    private EditText viejo;
+    private  EditText nuevo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +69,8 @@ private EditText viejo;
         final AlertDialog dialog = builder.create();
         dialog.show();
 
-        viejo = view.findViewById(R.id.etviejo);
-        nuevo = view.findViewById(R.id.etnuevo);
+         viejo = view.findViewById(R.id.etviejo);
+         nuevo = view.findViewById(R.id.etnuevo);
     }
 
     public void aceptar(View v){
