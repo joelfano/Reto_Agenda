@@ -17,76 +17,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.494"
-        app:srcCompat="@mipmap/img_blue" />
+        app:srcCompat="@color/cardview_dark_background" />
 
     <ImageView
         android:id="@+id/img_user"
-        android:layout_width="154dp"
-        android:layout_height="163dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="@+id/tv_title"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintTop_toTopOf="@+id/tv_title"
-        app:layout_constraintVertical_bias="0.067"
         app:srcCompat="@mipmap/user" />
 
     <Button
         android:id="@+id/btn_Login"
         android:layout_width="340dp"
         android:layout_height="53dp"
-        android:backgroundTint="#00F091"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/black"
         android:onClick="ejecutar"
         android:text="LOGIN"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_title"
         app:layout_constraintEnd_toEndOf="@+id/tv_title"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
-        app:layout_constraintTop_toTopOf="@+id/tv_title"
-        app:layout_constraintVertical_bias="0.934"
+        app:layout_constraintTop_toBottomOf="@+id/cb_Recuerda"
         app:shapeAppearance="@style/CardView" />
 
     <EditText
         android:id="@+id/et_Usuario"
         android:layout_width="300dp"
         android:layout_height="48dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_title"
         app:layout_constraintEnd_toEndOf="@+id/tv_title"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
         app:layout_constraintTop_toBottomOf="@+id/img_user"
-        app:layout_constraintVertical_bias="0.066"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/et_Contraseña"
         android:layout_width="300dp"
         android:layout_height="48dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_title"
         app:layout_constraintEnd_toEndOf="@+id/tv_title"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
         app:layout_constraintTop_toBottomOf="@+id/et_Usuario"
-        app:layout_constraintVertical_bias="0.222"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <CheckBox
         android:id="@+id/cb_Recuerda"
         android:layout_width="130dp"
         android:layout_height="48dp"
+        android:layout_marginTop="28dp"
         android:text="Recordarme"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Login"
         app:layout_constraintEnd_toEndOf="@+id/tv_title"
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/et_Contraseña"
-        app:layout_constraintVertical_bias="0.495" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Contraseña" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

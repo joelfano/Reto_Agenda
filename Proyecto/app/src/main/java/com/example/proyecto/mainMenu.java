@@ -35,7 +35,6 @@ public class mainMenu extends AppCompatActivity {
         int id = item.getItemId();
         if (id==R.id.op1) {
             mostrarDialogo();
-            Toast.makeText(this,"Se seleccionó la primer opción",Toast.LENGTH_LONG).show();
         }
         if (id==R.id.op2) {
             Toast.makeText(this,"Se seleccionó la segunda opción",Toast.LENGTH_LONG).show();
@@ -69,8 +68,8 @@ public class mainMenu extends AppCompatActivity {
         final AlertDialog dialog = builder.create();
         dialog.show();
 
-         viejo = view.findViewById(R.id.etviejo);
-         nuevo = view.findViewById(R.id.etnuevo);
+        viejo = view.findViewById(R.id.etviejo);
+        nuevo = view.findViewById(R.id.etnuevo);
     }
 
     public void aceptar(View v){

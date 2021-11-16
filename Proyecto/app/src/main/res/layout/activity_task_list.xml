@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/img_list_task"
-        android:layout_width="365dp"
+        android:layout_width="375dp"
         android:layout_height="672dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,41 +18,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.491"
-        app:srcCompat="@mipmap/img_white" />
+        app:srcCompat="@color/cardview_dark_background" />
 
     <Button
         android:id="@+id/btn_done"
         android:layout_width="164dp"
         android:layout_height="48dp"
-        android:backgroundTint="#00F091"
+        android:backgroundTint="@color/black"
         android:onClick="listahecho"
         android:text="HECHAS"
         app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
         app:layout_constraintEnd_toEndOf="@+id/img_list_task"
         app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="@+id/img_list_task"
-        app:layout_constraintTop_toTopOf="@+id/img_list_task"
-        app:layout_constraintVertical_bias="0.979"
+        app:layout_constraintTop_toBottomOf="@+id/listRecyclerView"
         app:shapeAppearance="@style/CardView" />
 
     <Button
         android:id="@+id/btn_to_do"
         android:layout_width="164dp"
         android:layout_height="48dp"
-        android:backgroundTint="#00F091"
+        android:backgroundTint="@color/black"
         android:onClick="listapendiente"
         android:text="PENDIENTES"
         app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
         app:layout_constraintEnd_toEndOf="@+id/img_list_task"
         app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="@+id/img_list_task"
-        app:layout_constraintTop_toTopOf="@+id/img_list_task"
-        app:layout_constraintVertical_bias="0.979"
+        app:layout_constraintTop_toBottomOf="@+id/listRecyclerView"
         app:shapeAppearance="@style/CardView" />
 
     <ImageView
         android:id="@+id/img_bg"
-        android:layout_width="365dp"
+        android:layout_width="375dp"
         android:layout_height="53dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
@@ -60,14 +58,15 @@
         app:layout_constraintStart_toStartOf="@+id/img_list_task"
         app:layout_constraintTop_toTopOf="@+id/img_list_task"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/img_blue" />
+        app:srcCompat="@color/cardview_dark_background" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="365dp"
+        android:layout_width="375dp"
         android:layout_height="35dp"
         android:text="Lista de tareas"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/img_bg"
         app:layout_constraintEnd_toEndOf="@+id/img_bg"
@@ -78,8 +77,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listRecyclerView"
-        android:layout_width="367dp"
-        android:layout_height="541dp"
+        android:layout_width="375dp"
+        android:layout_height="540dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/img_list_task"
         app:layout_constraintEnd_toEndOf="@+id/img_list_task"
         app:layout_constraintStart_toStartOf="@+id/img_list_task"

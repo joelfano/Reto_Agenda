@@ -59,7 +59,6 @@ public class newTask extends AppCompatActivity {
         String fecha = tvFecha.getText().toString();
         String prio = sp_Prio.getSelectedItem().toString();
         String coste = etCoste.getText().toString();
-        String pendiente ="false";
 
         ContentValues registro = new ContentValues();
         registro.put("nombre", nombre);
@@ -67,7 +66,7 @@ public class newTask extends AppCompatActivity {
         registro.put("fec", fecha);
         registro.put("prio", prio);
         registro.put("coste", coste);
-        registro.put("pendiente",pendiente);
+        registro.put("pendiente",false);
 
         bd.insert("articulos", null, registro);
         bd.close();
