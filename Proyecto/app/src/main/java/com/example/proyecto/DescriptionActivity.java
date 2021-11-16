@@ -34,7 +34,7 @@ public class DescriptionActivity extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         //Consultar el dato con rawQuery
-        Cursor fila = bd.rawQuery("select nombre,descripcion,fec,prio,coste from articulos where nombre = '" + element.getName() +"'", null);
+        Cursor fila = bd.rawQuery("select nombre,descripcion,fec,prio,coste,pendiente from articulos where nombre = '" + element.getName() +"'", null);
         String color = "";
         if (fila.moveToFirst()) {
             if(fila.getString(3).equals("Urgente")){
@@ -45,7 +45,9 @@ public class DescriptionActivity extends AppCompatActivity {
                 tv_statusDescription.setTextColor(Color.parseColor("#F3F021"));
             }else{
                 tv_statusDescription.setTextColor(Color.parseColor("#21F34D"));
+
             }
+
             tv_nombreDescription.setText(fila.getString(0));
             tv_desDescription.setText(fila.getString(1));
             tv_fechaDescription.setText(fila.getString(2));
@@ -63,14 +65,14 @@ public class DescriptionActivity extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         //Obtener los datos que quires agregar
-        boolean pendiente = true;
-
+        String pendiente="true";
+        String nom = tv_nombreDescription.getText().toString();
         //Crear un registro / Las columnas
         ContentValues registro = new ContentValues();
         registro.put("pendiente", pendiente);
 
         //Hacer un update en la BD
-        int cant = bd.update("articulos", registro, "pendiente='" + pendiente + "'", null);
+        int cant = bd.update("articulos", registro, "nombre='" + nom + "'" , null);
         bd.close();
         if (cant == 1)
             Toast.makeText(this, "se modificaron los datos", Toast.LENGTH_SHORT).show();
