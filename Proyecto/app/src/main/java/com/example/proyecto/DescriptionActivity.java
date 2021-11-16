@@ -2,11 +2,15 @@ package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DescriptionActivity extends AppCompatActivity {
 
@@ -50,5 +54,46 @@ public class DescriptionActivity extends AppCompatActivity {
         }
         bd.close();
 
+    }
+
+
+    public  void hecho(View view){
+
+        //Crear BD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        //Obtener los datos que quires agregar
+        boolean pendiente = true;
+
+        //Crear un registro / Las columnas
+        ContentValues registro = new ContentValues();
+        registro.put("pendiente", pendiente);
+
+        //Hacer un update en la BD
+        int cant = bd.update("articulos", registro, "pendiente='" + pendiente + "'", null);
+        bd.close();
+        if (cant == 1)
+            Toast.makeText(this, "se modificaron los datos", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this, "no existe un artículo con el código ingresado", Toast.LENGTH_SHORT).show();
+    }
+
+    public void borrar(View view) {
+        //Crear BD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        //Obtener dato para utilizar en en delete
+        String nom = tv_nombreDescription.getText().toString();
+        //Hacer el delete
+        int cant = bd.delete("articulos", "nombre='" + nom + "'", null);
+        bd.close();
+
+        if (cant == 1){
+            Toast.makeText(this, "Se borró el artículo con dicho código", Toast.LENGTH_SHORT).show();
+             Intent i = new Intent(this, taskList.class);
+            startActivity(i);
+        }else {
+            Toast.makeText(this, "No existe un artículo con dicho código", Toast.LENGTH_SHORT).show();
+        }
     }
 }

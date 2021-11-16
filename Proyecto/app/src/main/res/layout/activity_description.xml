@@ -74,4 +74,43 @@
         android:textColor="@color/black"
         android:textSize="16dp"/>
 
+    <Button
+        android:id="@+id/btnHecho"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_costeDescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="165dp"
+        android:onClick="hecho"
+        android:text="Hecho" />
+
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnHecho"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="26dp"
+        android:onClick="borrar"
+        android:text="Borrar" />
+
+    <Button
+        android:id="@+id/btnAtras"
+        android:layout_width="353dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnBorrar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="26dp"
+        android:text="Atras" />
+
+
 </RelativeLayout>

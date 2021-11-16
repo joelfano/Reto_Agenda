@@ -69,4 +69,32 @@ public class taskList extends AppCompatActivity {
         intent.putExtra("ListItem", item);
         startActivity(intent);
     }
+
+    public void listahecho(View view){
+//Crear BD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        //Consultar el dato con rawQuery
+        Cursor fila = bd.rawQuery("select nombre,descripcion,prio,pendiente from articulos", null);
+        String color = "";
+        while (fila.moveToNext()) {
+            if(fila.getString(2).equals("Urgente")){
+                color = "#5B0000";
+            }else if(fila.getString(2).equals("Alta")){
+                color = "#F35721";
+            }else if(fila.getString(2).equals("Media")){
+                color = "#F3F021";
+            }else{
+                color = "#21F34D";
+            }
+            if (fila.getString(3).equals(true)){
+                elements.add(new ListElement(color,fila.getString(0),fila.getString(1)));
+            }
+        }
+        bd.close();
+    }
+
+    public void listapendiente(View view){
+
+    }
 }
