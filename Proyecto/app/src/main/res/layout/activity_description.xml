@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_bg"
     tools:context=".DescriptionActivity">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Description"
+        android:text="@string/descipcion"
         android:textColor="@color/black"
         android:textSize="50dp"
         android:textStyle="bold" />
@@ -28,9 +29,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Status"
+        android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp"/>
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/tv_statusDescription"
@@ -42,9 +43,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="26dp"
-        android:text="Status"
+        android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp"/>
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/tv_fechaDescription"
@@ -56,9 +57,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="26dp"
-        android:text="Status"
+        android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp"/>
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/tv_costeDescription"
@@ -70,9 +71,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="26dp"
-        android:text="Status"
+        android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp"/>
+        android:textSize="16dp" />
 
     <Button
         android:id="@+id/btnHecho"
@@ -83,9 +84,10 @@
         android:layout_alignParentLeft="true"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="@color/black"
         android:onClick="hecho"
-        android:text="Hecho" />
+        android:text="@string/hechas" />
 
     <Button
         android:id="@+id/btnBorrar"
@@ -97,8 +99,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="26dp"
+        android:backgroundTint="@color/black"
         android:onClick="borrar"
-        android:text="Borrar" />
+        android:text="@string/borrar" />
 
     <Button
         android:id="@+id/btnAtras"
@@ -110,7 +113,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="26dp"
-        android:text="Atras" />
+        android:backgroundTint="@color/black"
+        android:text="@string/atras" />
 
 
 </RelativeLayout>

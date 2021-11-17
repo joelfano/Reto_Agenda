@@ -58,9 +58,23 @@ public class taskList extends AppCompatActivity {
         SQLiteDatabase bd = admin.getWritableDatabase();
 
         //Consultar el dato con rawQuery
+        elements.clear();
         Cursor fila = bd.rawQuery("select nombre,descripcion,prio,pendiente from articulos where pendiente=true", null);
         showRows(fila);
         bd.close();
+
+        ListAdapter listAdapter = new ListAdapter(elements, this, new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                moveToDescription(item);
+            }
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(listAdapter);
+        registerForContextMenu(recyclerView);
     }
 
     public void listapendiente(View view) {
@@ -70,9 +84,23 @@ public class taskList extends AppCompatActivity {
         SQLiteDatabase bd = admin.getWritableDatabase();
 
         //Consultar el dato con rawQuery
+        elements.clear();
         Cursor fila = bd.rawQuery("select nombre,descripcion,prio,pendiente from articulos where pendiente=false", null);
         showRows(fila);
         bd.close();
+
+        ListAdapter listAdapter = new ListAdapter(elements, this, new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                moveToDescription(item);
+            }
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(listAdapter);
+        registerForContextMenu(recyclerView);
     }
 
     public void showRows(Cursor fila) {

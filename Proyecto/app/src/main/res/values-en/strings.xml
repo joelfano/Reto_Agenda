@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project</string>
+    <string name="pendientes">TO DO</string>
+    <string name="lista_de_tareas">Task list</string>
+    <string name="hechas">DONE</string>
+    <string name="description">Description</string>
+    <string name="borrar">Delete</string>
+    <string name="atras">Back</string>
+    <string name="status">Status</string>
+    <string name="introduce_contrase_a_nueva">Introduce new password</string>
+    <string name="introduce_contrase_a_actual">Introduce actual password</string>
+    <string name="aceptar">Accept</string>
+    <string name="login">LOGIN</string>
+    <string name="usuario">User</string>
+    <string name="contrase_a">Password</string>
+    <string name="recordarme">Remember me</string>
+    <string name="descipcion">Description</string>
+    <string name="registrar">Sign up</string>
+    <string name="cancelar">Cancel</string>
+    <string name="coste">Cost</string>
+    <string name="nombre">Name</string>
+</resources>

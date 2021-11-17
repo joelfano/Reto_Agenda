@@ -65,7 +65,7 @@ public class DescriptionActivity extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         //Obtener los datos que quires agregar
-        String pendiente="true";
+        boolean pendiente=true;
         String nom = tv_nombreDescription.getText().toString();
         //Crear un registro / Las columnas
         ContentValues registro = new ContentValues();

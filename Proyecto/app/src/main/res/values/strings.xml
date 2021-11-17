@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Proyecto</string>
+    <string name="pendientes">PENDIENTES</string>
+    <string name="lista_de_tareas">Lista de tareas</string>
+    <string name="hechas">HECHAS</string>
+    <string name="description">Description</string>
+    <string name="borrar">Borrar</string>
+    <string name="atras">Atras</string>
+    <string name="status">Estados</string>
+    <string name="introduce_contrase_a_nueva">Introduce contraseña nueva</string>
+    <string name="introduce_contrase_a_actual">Introduce contraseña actual</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="login">LOGEAR</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="recordarme">Recordarme</string>
+    <string name="descipcion">Descipcion</string>
+    <string name="registrar">Registrar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="coste">Coste</string>
+    <string name="nombre">Nombre</string>
 </resources>

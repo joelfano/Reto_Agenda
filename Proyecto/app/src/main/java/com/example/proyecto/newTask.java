@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.database.Cursor;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class newTask extends AppCompatActivity {
@@ -87,7 +89,7 @@ public class newTask extends AppCompatActivity {
         dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                tvFecha.setText(day + "/" + month +"/"+ year);
+                tvFecha.setText(day + "/" + month+1 +"/"+ year);
             }
         }, day, month, year);
         dpd.show();
