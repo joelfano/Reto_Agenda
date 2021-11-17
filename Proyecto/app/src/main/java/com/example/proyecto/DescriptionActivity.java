@@ -22,19 +22,21 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
         getSupportActionBar().hide();
 
-        ListElement element = (ListElement) getIntent().getSerializableExtra("ListItem");
-
         tv_nombreDescription = findViewById(R.id.tv_titleDescription);
         tv_desDescription = findViewById(R.id.tv_desDescription);
         tv_fechaDescription = findViewById(R.id.tv_fechaDescription);
         tv_statusDescription = findViewById(R.id.tv_statusDescription);
         tv_costeDescription = findViewById(R.id.tv_costeDescription);
 
+        Bundle bundle = getIntent().getExtras();
+        String name = bundle.getString("taskName");
+
         //Crear BD
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
+
         //Consultar el dato con rawQuery
-        Cursor fila = bd.rawQuery("select nombre,descripcion,fec,prio,coste,pendiente from articulos where nombre = '" + element.getName() +"'", null);
+        Cursor fila = bd.rawQuery("select nombre,descripcion,fec,prio,coste,pendiente from articulos where nombre = '" + name +"'", null);
         String color = "";
         if (fila.moveToFirst()) {
             if(fila.getString(3).equals("Urgente")){
@@ -45,7 +47,6 @@ public class DescriptionActivity extends AppCompatActivity {
                 tv_statusDescription.setTextColor(Color.parseColor("#F3F021"));
             }else{
                 tv_statusDescription.setTextColor(Color.parseColor("#21F34D"));
-
             }
 
             tv_nombreDescription.setText(fila.getString(0));
@@ -55,21 +56,20 @@ public class DescriptionActivity extends AppCompatActivity {
             tv_costeDescription.setText(fila.getString(4));
         }
         bd.close();
-
     }
-
 
     public  void hecho(View view){
 
         //Crear BD
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
+
         //Obtener los datos que quires agregar
-        boolean pendiente=true;
         String nom = tv_nombreDescription.getText().toString();
+
         //Crear un registro / Las columnas
         ContentValues registro = new ContentValues();
-        registro.put("pendiente", pendiente);
+        registro.put("pendiente", true);
 
         //Hacer un update en la BD
         int cant = bd.update("articulos", registro, "nombre='" + nom + "'" , null);
@@ -81,11 +81,14 @@ public class DescriptionActivity extends AppCompatActivity {
     }
 
     public void borrar(View view) {
+
         //Crear BD
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
+
         //Obtener dato para utilizar en en delete
         String nom = tv_nombreDescription.getText().toString();
+
         //Hacer el delete
         int cant = bd.delete("articulos", "nombre='" + nom + "'", null);
         bd.close();
