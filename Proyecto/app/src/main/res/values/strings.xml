@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Proyecto</string>
     <string name="pendientes">PENDIENTES</string>
     <string name="lista_de_tareas">Lista de tareas</string>
@@ -19,4 +19,14 @@
     <string name="cancelar">Cancelar</string>
     <string name="coste">Coste</string>
     <string name="nombre">Nombre</string>
+    <string name="acercaDe_1">Envia tus comentarios o sugerencias a</string>
+    <string name="acercaDe_2"><u>ejemplo@gmail.com</u></string>
+    <string name="acercaDe_10">Copyright © Symple Mobile Tools 2021</string>
+    <string name="acercaDe_3">Antes de hacer una pregunta, primero lea las</string>
+    <string name="acercaDe_4"><u>More apps from us</u></string>
+    <string name="acercaDe_5"><u>Preguntas frecuentes</u></string>
+    <string name="acercaDe_6"><u>Invitar a amigos</u></string>
+    <string name="acercaDe_7"><u>Votanos en Play Store</u></string>
+    <string name="acercaDe_8"><u>Licencias de terceros</u></string>
+    <string name="acercaDe_9">v 5.2.11</string>
 </resources>

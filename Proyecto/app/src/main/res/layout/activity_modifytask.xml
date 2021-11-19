@@ -19,20 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <EditText
-        android:id="@+id/etNombre"
-        android:layout_width="380dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="@string/nombre"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etDescripcion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
-
     <Button
         android:id="@+id/btnFecha"
         android:layout_width="wrap_content"
@@ -102,6 +88,17 @@
         android:hint="@string/coste"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTaskName"
+        android:layout_width="380dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/etDescripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

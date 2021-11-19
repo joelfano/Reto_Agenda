@@ -22,6 +22,9 @@
             android:name=".taskList"
             android:exported="true" />
         <activity
+            android:name=".modifyTask"
+            android:exported="true" />
+        <activity
             android:name=".mainMenu"
             android:exported="true" />
         <activity

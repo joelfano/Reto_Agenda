@@ -10,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText et_Usuario;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         et_Usuario = findViewById(R.id.et_Usuario);
         et_Contraseña = findViewById(R.id.et_Contraseña);
         cb_Recuerda= findViewById(R.id.cb_Recuerda);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
     }
 
     public void ejecutar(View v) {

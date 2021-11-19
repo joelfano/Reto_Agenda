@@ -3,6 +3,8 @@ package com.example.proyecto;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,29 +18,27 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class taskList extends AppCompatActivity {
 
     ListView listViewTask;
-    private ArrayList<String> taskName = new ArrayList<String>();;
+    private final ArrayList<String> taskName = new ArrayList<>();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
 
-        listViewTask = (ListView) findViewById(R.id.listViewTask);
+        listViewTask = findViewById(R.id.listViewTask);
 
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         init();
 
-        listViewTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String name = (String) listViewTask.getItemAtPosition(position);
-                moveToDescription(name);
-            }
+        listViewTask.setOnItemClickListener((parent, view, position, id) -> {
+            String name = (String) listViewTask.getItemAtPosition(position);
+            moveToDescription(name);
         });
     }
 
@@ -115,12 +115,17 @@ public class taskList extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.context_menu, menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo i = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()){
             case R.id.opc_modify:
+                String name = (String) listViewTask.getItemAtPosition(i.position);
+                Intent intent = new Intent(this, modifyTask.class);
+                intent.putExtra("nombre", name);
+                startActivity(intent);
                 return false;
             case R.id.opc_delete:
                 borrar(i.position);

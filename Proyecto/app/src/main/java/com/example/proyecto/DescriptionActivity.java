@@ -37,16 +37,20 @@ public class DescriptionActivity extends AppCompatActivity {
 
         //Consultar el dato con rawQuery
         Cursor fila = bd.rawQuery("select nombre,descripcion,fec,prio,coste,pendiente from articulos where nombre = '" + name +"'", null);
-        String color = "";
         if (fila.moveToFirst()) {
-            if(fila.getString(3).equals("Urgente")){
-                tv_statusDescription.setTextColor(Color.parseColor("#5B0000"));
-            }else if(fila.getString(3).equals("Alta")){
-                tv_statusDescription.setTextColor(Color.parseColor("#F35721"));
-            }else if(fila.getString(3).equals("Media")){
-                tv_statusDescription.setTextColor(Color.parseColor("#F3F021"));
-            }else{
-                tv_statusDescription.setTextColor(Color.parseColor("#21F34D"));
+            switch (fila.getString(3)) {
+                case "Urgente":
+                    tv_statusDescription.setTextColor(Color.parseColor("#5B0000"));
+                    break;
+                case "Alta":
+                    tv_statusDescription.setTextColor(Color.parseColor("#F35721"));
+                    break;
+                case "Media":
+                    tv_statusDescription.setTextColor(Color.parseColor("#F3F021"));
+                    break;
+                default:
+                    tv_statusDescription.setTextColor(Color.parseColor("#21F34D"));
+                    break;
             }
 
             tv_nombreDescription.setText(fila.getString(0));

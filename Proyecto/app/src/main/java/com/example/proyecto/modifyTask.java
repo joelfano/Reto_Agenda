@@ -1,7 +1,5 @@
 package com.example.proyecto;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
@@ -15,13 +13,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Calendar;
 import java.util.Objects;
 
-public class newTask extends AppCompatActivity {
+public class modifyTask extends AppCompatActivity {
 
-    private EditText etNombre,etDescripcion,etCoste;
-    private TextView tvFecha;
+    private EditText etDescripcion,etCoste;
+    private TextView tvFecha, tvTaskName;
     private Button btnFecha;
     private Spinner sp_Prio;
     private Calendar c;
@@ -30,12 +31,16 @@ public class newTask extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newtask);
+        setContentView(R.layout.activity_modifytask);
 
-        etNombre=findViewById(R.id.etNombre);
+        Bundle bundle = getIntent().getExtras();
+        String nombre = bundle.getString("nombre");
+
         etDescripcion=findViewById(R.id.etDescripcion);
         etCoste=findViewById(R.id.etCoste);
 
+        tvTaskName=findViewById(R.id.tvTaskName);
+        tvTaskName.setText(nombre);
         tvFecha=findViewById(R.id.tvFecha);
 
         btnFecha=findViewById(R.id.btnFecha);
@@ -53,23 +58,26 @@ public class newTask extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
 
-        String nombre = etNombre.getText().toString();
+        String nombre = tvTaskName.getText().toString();
         String descri = etDescripcion.getText().toString();
         String fecha = tvFecha.getText().toString();
         String prio = sp_Prio.getSelectedItem().toString();
         String coste = etCoste.getText().toString();
 
         ContentValues registro = new ContentValues();
-        registro.put("nombre", nombre);
         registro.put("descripcion", descri);
         registro.put("fec", fecha);
         registro.put("prio", prio);
         registro.put("coste", coste);
-        registro.put("pendiente",false);
 
-        bd.insert("articulos", null, registro);
+        int cant = bd.update("articulos", registro, "nombre='" + nombre + "'",
+                null);
         bd.close();
-        etNombre.setText("");
+        if (cant == 1)
+            Toast.makeText(this, "Se modifico la tarea", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this, "No se pudo modificar la tarea", Toast.LENGTH_SHORT).show();
+
         etDescripcion.setText("");
         tvFecha.setText("");
         etCoste.setText("");
@@ -89,7 +97,7 @@ public class newTask extends AppCompatActivity {
     }
 
     public void goBack(View v) {
-        Intent i = new Intent(this, mainMenu.class);
+        Intent i = new Intent(this, taskList.class);
         startActivity(i);
     }
 }
