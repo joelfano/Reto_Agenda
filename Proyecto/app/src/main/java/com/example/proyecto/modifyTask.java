@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -51,6 +53,25 @@ public class modifyTask extends AppCompatActivity {
         sp_Prio.setAdapter(adapter);
 
         Objects.requireNonNull(getSupportActionBar()).hide();
+
+        init(nombre);
+    }
+
+    public void init(String nombre){
+        //Crear BD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        //Consultar el dato con rawQuery
+        Cursor fila = bd.rawQuery("select descripcion,fec,coste from articulos where nombre = '" + nombre +"'", null);
+        if (fila.moveToFirst()) {
+            etDescripcion.setText(fila.getString(0));
+            tvFecha.setText(fila.getString(1));
+            etCoste.setText(fila.getString(2));
+        }
+
+
+        bd.close();
     }
 
     public void addTask(View v) {
@@ -92,7 +113,7 @@ public class modifyTask extends AppCompatActivity {
         int month = c.get(Calendar.MONTH);
         int year = c.get(Calendar.YEAR);
 
-        dpd = new DatePickerDialog(this, (view, year1, month1, day1) -> tvFecha.setText(day1 + "/" + month1 +1 +"/"+ year1), year , month, day);
+        dpd = new DatePickerDialog(this, (view, year1, month1, day1) -> tvFecha.setText(day1 + "/" + (month1 + 1) +"/"+ year1), year , month, day);
         dpd.show();
     }
 

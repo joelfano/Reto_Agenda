@@ -105,4 +105,9 @@ public class DescriptionActivity extends AppCompatActivity {
             Toast.makeText(this, "No existe un artículo con dicho código", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void goBack(View v) {
+        Intent i = new Intent(this, taskList.class);
+        startActivity(i);
+    }
 }

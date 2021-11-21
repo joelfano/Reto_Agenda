@@ -20,7 +20,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
 public class taskList extends AppCompatActivity {
 
     ListView listViewTask;

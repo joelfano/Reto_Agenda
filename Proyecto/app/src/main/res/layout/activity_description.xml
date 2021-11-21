@@ -12,11 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/descipcion"
         android:textColor="@color/black"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
     <TextView
@@ -25,13 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_titleDescription"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_statusDescription"
@@ -39,13 +36,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_desDescription"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="26dp"
         android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_fechaDescription"
@@ -53,13 +48,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_statusDescription"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="26dp"
         android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_costeDescription"
@@ -67,13 +60,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_fechaDescription"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="26dp"
         android:text="@string/status"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnHecho"
@@ -81,10 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_costeDescription"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="250dp"
         android:backgroundTint="@color/black"
         android:onClick="hecho"
         android:text="@string/hechas" />
@@ -95,9 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnHecho"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="26dp"
         android:backgroundTint="@color/black"
         android:onClick="borrar"
@@ -109,11 +96,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnBorrar"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="26dp"
         android:backgroundTint="@color/black"
+        android:onClick="goBack"
         android:text="@string/atras" />
 
 

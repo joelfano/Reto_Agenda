@@ -84,7 +84,7 @@ public class newTask extends AppCompatActivity {
         int month = c.get(Calendar.MONTH);
         int year = c.get(Calendar.YEAR);
 
-        dpd = new DatePickerDialog(this, (view, year1, month1, day1) -> tvFecha.setText(day1 + "/" + month1 +1 +"/"+ year1), year , month, day);
+        dpd = new DatePickerDialog(this, (view, year1, month1, day1) -> tvFecha.setText(day1 + "/" + (month1 +1) +"/"+ year1), year , month, day);
         dpd.show();
     }
 
